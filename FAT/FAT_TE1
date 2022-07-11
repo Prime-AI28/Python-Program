@@ -1,0 +1,61 @@
+N = int(input())
+def Calc(a):
+    p = 0
+    if a>=1 and a<=5000:
+        p = 3
+    elif a<=10000:
+        p = 5
+    elif a<=15000:
+        p = 10
+    elif a<=20000:
+        p = 15
+    elif a<=25000:
+        p = 20
+    return int(p)
+
+fo = open("SuperSinger.txt","w+")
+for i in range(0,N):
+    Name = input()
+    J1 = int(input())
+    J2 = int(input())
+    J3 = int(input())
+    public = int(input())
+    JScore = J1 + J2 + J3
+    PScore = Calc(public)
+    Total = JScore + PScore
+
+    fo.write(Name + " " + str(J1) + " " + str(J2) + " " + str(J3) + " " + str(public) + " " + str(JScore) + " " + str(PScore) + " " + str(Total) + " " +"\n")
+
+fo.close()
+
+fo = open("SuperSinger.txt","r+")
+data = fo.readlines()
+fo.close()
+total_score = []
+judge_score = []
+public_score = []
+A =[]
+judge_27 = []
+public_15 = []
+for i in data:
+    l = i.split(' ')
+    judge_score.append(int(l[5]))
+    public_score.append(int(l[6]))
+    total_score.append(int(l[7]))
+    if l[0][0] == "A":
+        A.append(l[0])
+    if int(l[5]) > 27:
+        judge_27.append(l[0])
+    if int(l[6]) == 15:
+        public_15.append(l[0])
+
+TS_sorted = sorted(total_score,reverse=True)
+print(data[total_score.index(TS_sorted[0])])
+print(data[total_score.index(TS_sorted[1])])
+print(data[total_score.index(TS_sorted[2])])
+for j in A:
+    print(j,end="\n")
+for k in judge_27:
+    print(k,end="\n")
+for m in public_15:
+    print(m,end="\n")

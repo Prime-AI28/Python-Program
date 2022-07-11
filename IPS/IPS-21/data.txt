@@ -1,0 +1,4 @@
+The patient details are Arnav 25 Fever
+Susila 35 Cough
+Akash 22 Headache
+The student details are Sriram 80 90 90 260 86 Nalini 90 92 90 272 90 Nirmal 90 80 70 240 80
